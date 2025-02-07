@@ -9,17 +9,25 @@
         <script>
            const xhr=new XMLHttpRequest()
            //call
-           xhr.open('GET','https://api.github.com/users/snehabrsc')
+           xhr.open('GET','https://api.github.com/users/hiteshchoudhary')
            xhr.onreadystatechange=function(){
 
             if(xhr.readyState===4){
                 console.log(this.responseText)
                 const data=JSON.parse(this.responseText)
 
-                const div=document.createElement('div')
-                document.body.appendChild(div)
+                // const div=document.createElement('div')
+                // document.body.appendChild(div)
+                // div.style.height='200vh'
+
+                            const imgUrl = data.avatar_url
+            const img = document.createElement('img');
+            img.src = imgUrl;
+            img.style.height='20vh'
+            document.body.appendChild(img);
+
                
-                div.innerHTML=data.id
+                // div.innerHTML=data.avatar_url.value
 
 
                 const div1=document.createElement('div')
