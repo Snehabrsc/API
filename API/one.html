@@ -1,0 +1,38 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>API</title>
+    </head>
+    <body>
+        <script>
+           const xhr=new XMLHttpRequest()
+           //call
+           xhr.open('GET','https://api.github.com/users/snehabrsc')
+           xhr.onreadystatechange=function(){
+
+            if(xhr.readyState===4){
+                console.log(this.responseText)
+                const data=JSON.parse(this.responseText)
+
+                const div=document.createElement('div')
+                document.body.appendChild(div)
+               
+                div.innerHTML=data.id
+
+
+                const div1=document.createElement('div')
+                document.body.appendChild(div1)
+                div1.innerHTML=data.followers
+            }
+               
+           }
+           xhr.send()
+
+
+          
+         
+        </script>
+    </body>
+    </html>
